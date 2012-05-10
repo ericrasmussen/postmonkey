@@ -6,7 +6,7 @@ Features
 ========
 
 1) 100% test coverage
-2) Connection handling via the excellent `Requests <http://docs.python-requests.org>`_ library
+2) Connections handled by `Requests <http://docs.python-requests.org>`_
 3) Configurable timeout
 4) Simple `Exceptions`_
 
@@ -16,8 +16,6 @@ Basic Usage
 
 Once you create a `PostMonkey` instance with your MailChimp API key,
 you can use it to call MailChimp's API methods directly:
-
-```python
 
     from postmonkey import PostMonkey
     pm = PostMonkey('your_api_key')
@@ -46,15 +44,11 @@ Examples
 
 Create a new `PostMonkey` instance with a 10 second timeout for requests:
 
-```python
-
     from postmonkey import PostMonkey
     pm = PostMonkey('your_api_key', timeout=10)
-```
+
 
 Get the IDs for your campaign lists:
-
-```python
 
     lists = pm.lists()
 
@@ -65,14 +59,10 @@ Get the IDs for your campaign lists:
 
 Subscribe "emailaddress" to list ID 5:
 
-```python
-
     pm.listSubscribe(id=5, email_address="emailaddress")
-```
+
 
 Catch an exception returned by MailChimp (invalid list ID):
-
-```python
 
     from postmonkey import MailChimpException
     try:
@@ -80,15 +70,14 @@ Catch an exception returned by MailChimp (invalid list ID):
     except MailChimpException, e:
         print e.code  # 200
         print e.error # u'Invalid MailChimp List ID: 42'
-```
+
 
 Get campaign data for all "sent" campaigns:
 
-```python
 
     campaigns = pm.campaigns(filters=[{'status': 'sent'}])
 
     # print the name and count of emails sent for each campaign
     for c in campaigns['data']:
         print c['title'], c['emails_sent']
-```
+
