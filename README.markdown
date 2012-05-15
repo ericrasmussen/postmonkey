@@ -5,7 +5,7 @@ version 1.3.
 Features
 ========
 
-1. 100% test coverage
+1. 100% unit test and code coverage
 2. Connections handled by [Requests](http://docs.python-requests.org>)
 3. Configurable timeout
 4. Simple `Exceptions`
