@@ -5,10 +5,10 @@ version 1.3.
 Features
 ========
 
-1) 100% test coverage
-2) Connections handled by [Requests](http://docs.python-requests.org>)
-3) Configurable timeout
-4) Simple `Exceptions`
+1. 100% test coverage
+2. Connections handled by [Requests](http://docs.python-requests.org>)
+3. Configurable timeout
+4. Simple `Exceptions`
 
 
 Basic Usage
@@ -35,7 +35,7 @@ to their [FAQ](http://apidocs.mailchimp.com/api/faq/) for information.
 required parameters. If MailChimp receives an invalid request, `PostMonkey`
 will raise a `postmonkey.exceptions.MailChimpException` containing the
 error code and message. See
-[MailChimp API v1.3 - Exceptions](http://apidocs.mailchimp.com/api/1.3/exceptions.field.php
+[MailChimp API v1.3 - Exceptions](http://apidocs.mailchimp.com/api/1.3/exceptions.field.php)
 for additional details.
 
 
