@@ -1,11 +1,11 @@
-__version__ = '0.1a'
+__version__ = '1.0a'
 
 import os
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 here = os.path.abspath(os.path.dirname(__file__))
-README = open(os.path.join(here, 'README.rst')).read()
+README = open(os.path.join(here, 'README.markdown')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.rst')).read()
 
 testing_extras = ['pkginfo', 'nose', 'coverage']
@@ -25,7 +25,7 @@ setup(name='postmonkey',
       author_email='eric@chromaticleaves.com',
       url='http://python.chromaticleaves.com/docs/postmonkey/',
       license='FreeBSD',
-      packages=find_packages(),
+      packages=['postmonkey'],
       test_suite='postmonkey.tests',
       include_package_data=True,
       zip_safe=False,
