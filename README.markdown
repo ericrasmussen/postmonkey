@@ -24,7 +24,7 @@ you can use it to call MailChimp's API methods directly:
 ```
 
 If the MailChimp method call accepts parameters, you can supply them in the form
-of keyword arguments. See `Examples`_ for common use cases, and refer to the
+of keyword arguments. See `Examples` for common use cases, and refer to the
 [MailChimp API v1.3 official documentation](http://apidocs.mailchimp.com/api/rtfm/)
 for a complete list of method calls, parameters, and response objects.
 
