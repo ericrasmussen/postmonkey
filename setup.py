@@ -5,10 +5,8 @@ import os
 from setuptools import setup
 
 here = os.path.abspath(os.path.dirname(__file__))
-README = open(os.path.join(here, 'README.markdown')).read()
-CHANGES = open(os.path.join(here, 'CHANGES.rst')).read()
-
-testing_extras = ['pkginfo', 'nose', 'coverage']
+README = open(os.path.join(here, 'README.rst')).read()
+CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 setup(name='postmonkey',
       version=__version__,
@@ -30,11 +28,5 @@ setup(name='postmonkey',
       include_package_data=True,
       zip_safe=False,
       tests_require=['pkginfo', 'nose'],
-      install_requires=[
-        'requests',
-        ],
-      entry_points='',
-      extras_require = {
-          'testing':testing_extras,
-          },
+      install_requires=['requests'],
 )
