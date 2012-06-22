@@ -64,6 +64,20 @@ class TestPostMonkey(unittest.TestCase):
         self.assertRaises(DeserializationError,
                           inst._deserialize_response, response)
 
+    def test_deserialize_bool_response(self):
+        inst = self._makeOne()
+        response = 'true'
+        actual = inst._deserialize_response(response)
+        self.assertEqual(actual, True)
+
+    def test_deserialize_iterable_that_looks_like_an_error(self):
+        import json
+        inst = self._makeOne()
+        sample = 'there was a code that led to an error'
+        response = json.dumps(sample)
+        deserialized = inst._deserialize_response(response)
+        self.assertEqual(deserialized, sample)
+
     def test_method_call(self):
         inst = self._makeOne({'apikey': 'apikey'})
         inst.postrequest = dummy_post_request

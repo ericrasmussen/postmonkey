@@ -132,7 +132,11 @@ class PostMonkey(object):
         try/except clause and work with a single exception type for any
         error returned by MailChimp.
         """
-        if 'code' in response and 'error' in response:
+        # case: response is not a dict so it cannot be an error response
+        if not isinstance(response, dict):
+            return
+        # case: response is a dict and may be an error response
+        elif 'code' in response and 'error' in response:
             raise MailChimpException(response['code'], response['error'])
 
 def postmonkey_from_settings(settings):
