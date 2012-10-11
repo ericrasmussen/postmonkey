@@ -25,10 +25,11 @@ class TestPostMonkey(unittest.TestCase):
 
     def test_serialize_valid_payload(self):
         import json
+        from urllib import unquote
         settings = {'default1':'', 'default2':''}
         inst = self._makeOne(settings)
         payload = {'param1':'', 'param2':''}
-        serialized = inst._serialize_payload(payload)
+        serialized = unquote(inst._serialize_payload(payload))
         expected_dict = dict(default1='', default2='', param1='', param2='')
         deserialized_json = json.loads(serialized)
         self.assertEqual(deserialized_json, expected_dict)
@@ -42,11 +43,12 @@ class TestPostMonkey(unittest.TestCase):
 
     def test_payload_takes_precedence(self):
         import json
+        from urllib import unquote
         settings = {'default1':'', 'default2':''}
         inst = self._makeOne(settings)
         payload = {'default1':'overriden'}
         serialized = inst._serialize_payload(payload)
-        deserialized = json.loads(serialized)
+        deserialized = json.loads(unquote(serialized))
         self.assertEqual(deserialized['default1'], 'overriden')
 
     def test_deserialize_valid_response(self):
@@ -153,7 +155,8 @@ class DummyResponse(object):
 
 def dummy_post_request(url, data='', headers={}, timeout=None):
     import json
-    params = json.loads(data)
+    from urllib import unquote
+    params = json.loads(unquote(data))
     resp = {'received': params}
     json = json.dumps(resp)
     return DummyResponse(json)

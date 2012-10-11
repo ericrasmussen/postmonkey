@@ -1,5 +1,6 @@
 import json
 import requests
+from urllib import quote
 from functools import partial
 
 from . exceptions import (
@@ -105,12 +106,15 @@ class PostMonkey(object):
         """ Merges any default parameters from ``self.params`` with the
         ``payload`` (giving the ``payload`` precedence) and attempts to
         serialize the resulting ``dict`` to JSON.
+        Note: MailChimp excepts the JSON string to be quoted (their docs
+        call it "URL encoded", but python's ``urllib`` calls it "quote".
         Raises a ``SerializationError`` if data cannot be serialized.
         """
         params = self.params.copy()
         params.update(payload)
         try:
-            serialized = json.dumps(params)
+            jsonstr = json.dumps(params)
+            serialized = quote(jsonstr)
             return serialized
         except TypeError:
             raise SerializationError(payload)
