@@ -3,3 +3,4 @@ Changelog
 =========
 
 -Initial Release
+-2012/10/11: Quote JSON string before sending POST request
