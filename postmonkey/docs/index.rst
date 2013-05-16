@@ -96,6 +96,40 @@ Get campaign data for all "sent" campaigns:
         print c['title'], c['emails_sent']
 
 
+MailChimp merge_vars
+====================
+
+MailChimp allows you to store extra fields on subscriber accounts so you can
+personalize campaigns. The simplest example is having your campaign begin with:
+
+`Hello, *|FNAME|*!`
+
+Where `*|FNAME|*` will be replaced with the value of each user's FNAME merge
+variable.
+
+The MailChimp API docs declare these `merge_vars` to be of type "array", but,
+likely because their API supports multiple formats and is tightly coupled with
+their server side PHP tools, the JSON API does not actually expect an
+array. This makes sense when you realize that PHP arrays are already a misnomer
+(they're associative arrays and bear more in common with python dicts). With
+this realization it's not surprising when you see that the PHP built-ins
+`json_encode` and `json_decode` convert PHP arrays to and from plain JSON
+objects.
+
+The good news is this means that python users of the JSON API, and of course
+users of PostMonkey, can simply supply merge_vars in the form of a dict. Here's
+an example of calling `listSubscribe` with merge_vars:
+
+
+.. code-block:: python
+
+pm.listSubscribe(id='<your_list_id>',
+                 email_address='<subscriber_email>',
+                 merge_vars={'FNAME': 'Mail', 'LNAME': 'Chimp'},
+                 )
+
+
+
 PostMonkey Class
 ================
 
