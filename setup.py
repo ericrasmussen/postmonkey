@@ -1,4 +1,4 @@
-__version__ = '1.0a4'
+__version__ = '1.0b'
 
 import os
 
@@ -21,7 +21,7 @@ setup(name='postmonkey',
       keywords='mailchimp',
       author='Eric Rasmussen',
       author_email='eric@chromaticleaves.com',
-      url='http://python.chromaticleaves.com/docs/postmonkey/',
+      url='http://postmonkey.readthedocs.org/',
       license='FreeBSD',
       packages=['postmonkey'],
       test_suite='postmonkey.tests',
