@@ -1,4 +1,4 @@
-PostMonkey 1.0a
+PostMonkey 1.0b
 ===============
 
 `PostMonkey` is a simple Python (2.6+) wrapper for MailChimp's API
@@ -11,7 +11,7 @@ Features
 1) 100% test coverage
 2) Connection handling via the excellent `Requests <http://docs.python-requests.org>`_ library
 3) Configurable timeout
-4) Simple `Exceptions`_
+4) Simple `Exceptions`
 
 
 Basic Usage
