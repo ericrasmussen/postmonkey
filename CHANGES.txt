@@ -3,4 +3,7 @@ Changelog
 =========
 
 -Initial Release
--2012/10/11: Quote JSON string before sending POST request
+
+-2012-10-11: Quote JSON string before sending POST request
+
+-2013-07-03: Documentation updates and version bump (no code changes)
