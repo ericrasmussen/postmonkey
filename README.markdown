@@ -11,6 +11,15 @@ Features
 4. Simple `Exceptions`
 
 
+Installation
+============
+
+You can install postmonkey via `easy_install`:
+
+```
+   >>>easy_install postmonkey 
+```
+
 Basic Usage
 ===========
 
