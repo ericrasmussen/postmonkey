@@ -14,6 +14,31 @@ Features
 4) Simple `Exceptions`
 
 
+Installation
+============
+
+You can install postmonkey via `easy_install`:
+
+.. code-block:: console
+
+    easy_install postmonkey
+
+Or by using `pip` (requires you to specify the version because latest is 1.0b):
+
+.. code-block:: console
+
+    pip install postmonkey==1.0b
+
+Or by placing the requirement in `install_requires` in your `setup.py` file:
+
+.. code-block:: python
+
+      install_requires=[
+          # all your other packages
+          'postmonkey==1.0b',
+      ]
+
+
 Basic Usage
 ===========
 
